@@ -39,7 +39,7 @@ architecture simple of console_logger is
   signal commits_fifo_rd_en    : std_logic;
 
   -- drive the oled controller
-  signal sendData              : std_logic_vector(7 downto 0);
+  signal sendData              : std_logic_vector(6 downto 0);
   signal sendDataValid         : std_logic;
   signal sendDone              : std_logic;
 
@@ -47,6 +47,7 @@ architecture simple of console_logger is
   signal chars_counter_wr_en   : std_logic;
 
   signal commit                : std_logic_vector(7 downto 0);
+  signal commit_wr_en          : std_logic;
 
 begin
 
@@ -79,8 +80,8 @@ begin
 
   oledControl_inst: entity work.oledControl --_vhdl_wrapper
     port map (
-      clk            => clk            ,
-      rst            => rst            ,
+      clock          => clk            ,
+      reset          => rst            ,
       oled_spi_clk   => oled_spi_clk   ,
       oled_spi_data  => oled_spi_data  ,
       oled_vdd       => oled_vdd       ,
