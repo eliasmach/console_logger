@@ -1,0 +1,3 @@
+[submodule "ZynqOLED"]
+	path = ZynqOLED
+	url = https://github.com/vipinkmenon/ZynqOLED.git
